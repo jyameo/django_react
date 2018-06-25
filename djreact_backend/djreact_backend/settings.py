@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     'corsheaders',
     'rest_framework',
+    'channels',
+
     'djreact_backend_app',
 ]
 
@@ -128,3 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+ASGI_APPLICATION = "djreact_backend.routing.application"
+
+CHANNEL_LAYERS = {}
