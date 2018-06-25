@@ -1,4 +1,5 @@
 .*
 !/.gitignore
-.vscode/
+*.whl
 dj_env/
+
