@@ -1,4 +1,4 @@
 .*
 !/.gitignore
+.vscode/
 dj_env/
-.*
