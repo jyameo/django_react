@@ -1,5 +1,5 @@
 .*
-!/.gitignore
+.gitignore
 *.whl
 dj_env/
 
