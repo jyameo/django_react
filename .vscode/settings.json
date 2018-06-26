@@ -24,5 +24,6 @@
   "workbench.startupEditor": "newUntitledFile",
   "files.autoSave": "onFocusChange",
   "git.enableSmartCommit": true,
-  "git.autofetch": true
+  "git.autofetch": true,
+  "git.ignoreLimitWarning": true
 }
