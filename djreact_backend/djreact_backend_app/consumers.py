@@ -48,5 +48,5 @@ class NoteConsumer(WebsocketConsumer):
             self.send(text_data=json.dumps({
                 'title': title,
                 'content': content,
-                'id': id
+                'id': _id
             }))

@@ -131,6 +131,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-ASGI_APPLICATION = "djreact_backend.routing.application"
+ASGI_APPLICATION = "djreact_backend.routing.MY_APP"
 
-CHANNEL_LAYERS = {}
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgi_redis.RedisChannelLayer",
+        "CONFIG": {
+            "host": [('localhost', 6379)]
+        },
+        "ROUTING": "djreact_backend.routing.MY_APP"
+    }
+}

@@ -2,6 +2,6 @@ from django.urls import path
 
 from .consumers import NoteConsumer
 
-websocket_url_patterns = [
+WS_URLPATTERNS = [
     path('ws/notes', NoteConsumer)
 ]
