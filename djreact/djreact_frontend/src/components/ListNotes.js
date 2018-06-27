@@ -1,5 +1,5 @@
 import React from "react";
-
+import Note from "./Note";
 import { ListGroup, ListGroupItem } from "reactstrap";
 
 const ListNotes = ({ notes, eventHandler }) => {
@@ -10,7 +10,7 @@ const ListNotes = ({ notes, eventHandler }) => {
         href="#"
         onClick={id => eventHandler(note.id)}
       >
-        <p>{note.title}</p>
+        <Note title={note.title} />
       </ListGroupItem>
     );
   });

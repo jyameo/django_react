@@ -1,4 +1,5 @@
 .*
 *.whl
 dj_env/
+node_modules/
 

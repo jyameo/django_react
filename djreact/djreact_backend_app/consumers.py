@@ -22,7 +22,7 @@ class NoteConsumer(WebsocketConsumer):
         )
 
     def receive(self, text_data):
-        text_json = json.load(text_data)
+        text_json = json.loads(text_data)
         title = text_json['title']
         content = text_json['content']
         _id = text_json['id']
@@ -41,12 +41,12 @@ class NoteConsumer(WebsocketConsumer):
             }
         )
 
-        def add_node(self, event):
-            title = event['title']
-            content = event['content']
-            _id = event['id']
-            self.send(text_data=json.dumps({
-                'title': title,
-                'content': content,
-                'id': _id
-            }))
+    def add_note(self, event):
+        title = event['title']
+        content = event['content']
+        _id = event['id']
+        self.send(text_data=json.dumps({
+            'title': title,
+            'content': content,
+            'id': _id
+        }))

@@ -1,4 +1,4 @@
-const url = "http://localhost:8000/api/v1/notes";
+const url = "http://localhost:8000/api/v1/notes/";
 
 export const fetchNotes = async () => {
   return fetch(url, {})
@@ -9,15 +9,15 @@ export const fetchNotes = async () => {
 };
 
 export const fetchNote = id => {
-  return {
-    id: 123,
-    title: "Hello",
-    content: "Testing..."
-  };
+  return fetch(`${url + id}`, {})
+    .then(res => res.json())
+    .then(data => {
+      return data;
+    });
 };
 
-export const addNote = note => {
-  return fetch(url, {
+export const addNote = async note => {
+  fetch(url, {
     method: "POST",
     headers: {
       Accept: "application/json",

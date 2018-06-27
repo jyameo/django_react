@@ -137,8 +137,7 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "asgi_redis.RedisChannelLayer",
         "CONFIG": {
-            "host": [('localhost', 6379)]
+            "hosts": [('localhost', 6379)]
         },
-        "ROUTING": "djreact_backend.routing.MY_APP"
     }
 }
