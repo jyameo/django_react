@@ -54,13 +54,12 @@ class App extends Component {
     await this.getData();
   }
 
-  handleData(data) {
+  async handleData(data) {
     let result = JSON.parse(data);
     let current_note = this.state.note;
     if (current_note.id === result.id) {
       this.setState({ note: result });
     }
-    console.log("data handled");
   }
 
   handleOnChange(e) {
