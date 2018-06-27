@@ -3,37 +3,48 @@ import React, { Component } from "react";
 import { Button, Container, Row, Col } from "reactstrap";
 
 import ListNotes from "./components/ListNotes";
-
-var static_notes = [
-  {
-    id: 1,
-    title: "firstREACT",
-    content: "This is the first REACT note"
-  },
-  {
-    id: 2,
-    title: "secondREACT",
-    content: "This is the second REACT note"
-  },
-  {
-    id: 3,
-    title: "thirdREACT",
-    content: "This is the third REACT note"
-  }
-];
+import { fetchNote, fetchNotes, updateNote, addNote } from "./api";
+// var static_notes = [
+//   {
+//     id: 1,
+//     title: "firstNote",
+//     content: "This is the first REACT note"
+//   },
+//   {
+//     id: 2,
+//     title: "secondNote",
+//     content: "This is the second REACT note"
+//   },
+//   {
+//     id: 3,
+//     title: "thirdNote",
+//     content: "This is the third REACT note"
+//   }
+// ];
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      notes: static_notes,
+      notes: [],
       current_id: 0,
-      is_creating: true
+      is_creating: true,
+      is_fetching: true
     };
 
     this.handleClickNoteEvent = this.handleClickNoteEvent.bind(this);
     this.handleAddNoteEvent = this.handleAddNoteEvent.bind(this);
+    this.getData = this.getData.bind(this);
+  }
+
+  componentDidMount() {
+    this.getData();
+  }
+
+  async getData() {
+    let data = await fetchNotes();
+    this.setState({ notes: data });
   }
 
   handleClickNoteEvent(id) {
