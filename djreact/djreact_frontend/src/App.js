@@ -38,9 +38,8 @@ class App extends Component {
 
   async handleClickNoteEvent(id) {
     let selected_note = await fetchNote(id);
-
     this.setState(prevState => {
-      return { is_creating: false, current_id: id };
+      return { is_creating: false, current_id: id, note: selected_note };
     });
   }
 
@@ -61,6 +60,7 @@ class App extends Component {
     if (current_note.id === result.id) {
       this.setState({ note: result });
     }
+    console.log("data handled");
   }
 
   handleOnChange(e) {
