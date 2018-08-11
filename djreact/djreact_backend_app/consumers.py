@@ -30,6 +30,7 @@ class NoteConsumer(WebsocketConsumer):
         # Update object
         note = Note.objects.get(pk=_id)
         note.title = title
+        note.content = content
         note.save()
 
         async_to_sync(self.channel_layer.group_send)(
